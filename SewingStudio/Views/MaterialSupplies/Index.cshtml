@@ -1,0 +1,59 @@
+﻿@model IEnumerable<SewingStudio.Models.MaterialSupply>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Provider)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Material.MaterialName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PriceOfMaterials)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AmountOfMaterial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeliveryDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Provider)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Material.MaterialName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriceOfMaterials)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmountOfMaterial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeliveryDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MaterialSuplyId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MaterialSuplyId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MaterialSuplyId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
